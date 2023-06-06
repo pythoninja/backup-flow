@@ -34,7 +34,7 @@ Please read the [Disclaimer](#disclaimer) section.
 ## Features
 
 1. Back up selected folders to local storage.
-2. Back up selected MySQL / PostgreSQL database to local storage.
+2. Back up selected MySQL / PostgreSQL database to the local storage.
 3. Copy files from remote storage (using Rclone) to the local storage.
 4. Upload folders from local storage to the Restic repository.
 5. Includes a Systemd service unit and timer.
