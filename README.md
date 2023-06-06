@@ -64,7 +64,7 @@ Open the script and change the following options:
 
 `RCLONE_REMOTE_BACKUP` — enable if files from remote storage managed by Rclone should be copied to the `BACKUP_STORAGE_PATH`
 
-`RCLONE_STORAGE_NAME` — Rclone remote storage name (check ~/.config/rclone/rclone.conf or rclone config)
+`RCLONE_STORAGE_NAME` — Rclone remote storage name (check `~/.config/rclone/rclone.conf` or `rclone config`)
 
 `RCLONE_REMOTE_PATH` — Rclone remote path
 
