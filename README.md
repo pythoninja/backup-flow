@@ -25,7 +25,7 @@
 ## Features
 
 1. Back up selected folders to local storage.
-2. Back up selected MySQL databases to local storage.
+2. Back up selected MySQL / PostgreSQL database to local storage.
 3. Copy files from remote storage (using Rclone) to the local storage.
 4. Upload folders from local storage to the Restic repository.
 5. Includes a Systemd service unit and timer.
@@ -37,7 +37,7 @@
 
 Before using the `backup-flow` script, please ensure that you have:
 
-1. Knowledge of how to configure Postgres or MySQL/MariaDB.
+1. Knowledge of how to configure PostgreSQL or MySQL/MariaDB.
 2. Installed `mysqldump` or `pg_dump` utilities.
 3. Installed and configured [Rclone](https://rclone.org/downloads/).
 4. Installed and configured [Restic](https://restic.readthedocs.io/en/latest/020_installation.html).
@@ -203,7 +203,7 @@ Refer to the examples directory.
 
 ### Backup with Docker
 
-If you have a database server running in Docker and don't want to install `pg_dump` or `mysqldump` locally, you can dump the database using a container. Here is an example to back up a Postgres database:
+If you have a database server running in Docker and don't want to install `pg_dump` or `mysqldump` locally, you can dump the database using a container. Here is an example to back up a PostgreSQL database:
 
 ```bash
 docker run --rm --env PGUSER=db_user --env PGPASSWORD=db_password postgres:15 pg_dump -h db_hostname -d db_name -b -w --clean --if-exists > database_dump.sql
