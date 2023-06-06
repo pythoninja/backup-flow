@@ -1,0 +1,29 @@
+github_url = "https://github.com/pythoninja/backup-flow"
+
+[version]
+current = "0.1.0-alpha.1"
+
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  (\-
+    (?P<extra>.+)
+  )?
+  '''
+
+[git]
+message_template = "chore(release): v{new_version}"
+tag_template = "v{new_version}"
+
+[[file]]
+src = "README.md"
+
+[[file]]
+src = "scripts/backup-flow.sh"
+
+[[field]]
+name = "extra"
+default = ""
