@@ -55,6 +55,10 @@ Before using the `backup-flow` script, please ensure that you have:
 
 Follow these steps for installation.
 
+TBD
+
+[(Go to top)](#table-of-contents)
+
 ## Configuration
 
 #### backup-flow
@@ -83,6 +87,8 @@ Open the script and change the following options:
 
 Additionally, please review the script for other parameters. The options are documented with comments.
 
+[(Go to top)](#table-of-contents)
+
 #### Rclone
 
 Install and configure Rclone remote storage. Here is an example configuration for Minio:
@@ -104,6 +110,8 @@ Check if it works with the command: `rclone ls bs-s3:/bucket-name/uploads`
      6467 scaled-1680-/untitled-design.jpg
      4203 thumbs-150-150/untitled-design.jpg
 ```
+
+[(Go to top)](#table-of-contents)
 
 #### Databases
 
@@ -134,6 +142,8 @@ Check if it works with the command: `mysql -e "select 1"`
 +---+
 ```
 
+[(Go to top)](#table-of-contents)
+
 ##### PostgreSQL
 
 To back up a PostgreSQL server, put your credentials into `~/.pgpass` (or specify the location using the PGPASSFILE environment variable). Here is an example:
@@ -160,6 +170,8 @@ Check if it works with the command: `psql -h db_hostname -d db_name -U db_user -
 ```
 
 Alternatively (without .pgpass file), you can pass environment variables: `PGPASSWORD=db_password psql -h db_hostname -d db_name -U db_user -c "select 1;"`
+
+[(Go to top)](#table-of-contents)
 
 #### Restic
 
@@ -196,7 +208,11 @@ Stats in restore-size mode:
               Total Size:  32.015 MiB
 ```
 
+[(Go to top)](#table-of-contents)
+
 #### Systemd and Timers
+
+
 
 Download the service and timer files.
 
@@ -206,9 +222,13 @@ Run `systemctl daemon-reload`. Start the timer:
 systemctl enable backup-flow-timer && systemctl start backup-flow.timer
 ```
 
+[(Go to top)](#table-of-contents)
+
 ### Backup Scenarios
 
 Refer to the examples directory.
+
+[(Go to top)](#table-of-contents)
 
 ### Backup with Docker
 
@@ -226,6 +246,10 @@ If you have a `.pgpass` file, mount it as a Docker volume:
 docker run --rm --env PGUSER=db_user --volume "/root/.pgpass:/root/.pgpass" postgres:15 pg_dump -h db_hostname -d db_name -b -w --clean --if-exists > database_dump.sql
 ```
 
+[(Go to top)](#table-of-contents)
+
 ## License
 
 There are no special requirements on usage and distribution.
+
+[(Go to top)](#table-of-contents)
