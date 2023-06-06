@@ -2,7 +2,7 @@
 
 `backup-flow` is a Bash script that internally utilizes Restic for backing up files to a repository (referred to as a "repository" in Restic). It also provides the option to use Rclone for copying files from remote storage to the local system. Systemd Timers are employed to schedule periodic backups.
 
-Current version: 0.1.0-alpha.1
+Current version: v0.1.0-alpha.1
 
 Please read the [Disclaimer](#disclaimer) section.
 
