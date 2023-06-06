@@ -1,0 +1,14 @@
+# More info:
+#   https://man7.org/linux/man-pages/man7/systemd.time.7.html
+#   https://man7.org/linux/man-pages/man5/systemd.timer.5.html
+
+[Unit]
+Description=backup-flow timer
+Requires=backup-flow.service
+
+[Timer]
+OnCalendar=*-*-* 21:00:00
+RandomizedDelaySec=30m
+
+[Install]
+WantedBy=timers.target

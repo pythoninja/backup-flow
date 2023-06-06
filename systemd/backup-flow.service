@@ -1,0 +1,13 @@
+[Unit]
+Description=Run backup-flow
+After=syslog.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+EnvironmentFile=/etc/restic/environment
+ExecStart=/usr/local/bin/backup-flow.sh database
+
+[Install]
+WantedBy=multi-user.target
