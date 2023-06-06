@@ -56,13 +56,13 @@ Open the script and change the following options:
 
 `BACKUP_DIR_PATH`— local directory path
 
-`BACKUP_FILES`— array of files to copy to BACKUP_STORAGE_PATH
+`BACKUP_FILES`— array of files to copy to `BACKUP_STORAGE_PATH`
 
 `BACKUP_DIRS`— as previous but for directories
 
 `BACKUP_DATABASE_TYPE` — mysql or postgresql
 
-`RCLONE_REMOTE_BACKUP` — enable if files from remote storage managed by Rclone should be copied to the BACKUP_STORAGE_PATH
+`RCLONE_REMOTE_BACKUP` — enable if files from remote storage managed by Rclone should be copied to the `BACKUP_STORAGE_PATH`
 
 `RCLONE_STORAGE_NAME` — Rclone remote storage name (check ~/.config/rclone/rclone.conf or rclone config)
 
