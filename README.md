@@ -119,7 +119,7 @@ Check if it works with the command: `rclone ls bs-s3:/bucket-name/uploads`
 
 ##### MySQL / MariaDB
 
-To back up a MySQL / MariaDB server, put your credentials into `~/.my.cnf`. Here is an example:
+To back up a MySQL database / MariaDB database, put your credentials into `~/.my.cnf`. Here is an example:
 
 ```ini
 [client]
@@ -243,8 +243,6 @@ docker run --rm --env PGUSER=db_user --env PGPASSWORD=db_password postgres:15 pg
 If you have a `.pgpass` file, mount it as a Docker volume:
 
 ```bash
-
-
 docker run --rm --env PGUSER=db_user --volume "/root/.pgpass:/root/.pgpass" postgres:15 pg_dump -h db_hostname -d db_name -b -w --clean --if-exists > database_dump.sql
 ```
 
