@@ -15,21 +15,10 @@ body = """
 {% endif %}\
 {% for group, commits in commits | group_by(attribute="group") %}
     ### {{ group | striptags | trim | upper_first }}
-    {% for commit in commits | filter(attribute="scope") | sort(attribute="scope") %}
-        - *({{commit.scope}})*{% if commit.breaking %} [**breaking**]{% endif %} \
-            {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}]({{ repo}}/commit/{{ commit.id }}))
-    {%- endfor -%}
-    {% raw %}\n{% endraw %}\
-    {%- for commit in commits %}
-        {%- if commit.scope -%}
-        {% else -%}
-            - *(uncategorized)*{% if commit.breaking %} [**breaking**]{% endif %} \
-                {{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}]({{ repo}}/commit/{{ commit.id }}))
-        {% endif -%}
-        {% for link in commit.links -%}
-            , {{ link.text }}({{ link.href }})\
-        {% endfor -%}
-    {% endfor -%}
+    {% for commit in commits %}
+        - {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | upper_first }} \
+            ([{{ commit.id | truncate(length=7, end="") }}]({{ repo }}/commit/{{ commit.id }}))
+    {%- endfor %}
 {% endfor %}\n
 """
 
@@ -49,7 +38,7 @@ filter_unconventional = true
 split_commits = false
 # regex for preprocessing the commit messages
 commit_preprocessors = [
-  { pattern = '(.*)\(#([0-9]).*', replace = '${1}([PR #${2}](https://github.com/pythoninja/backup-flow/pull/${2}))' }
+  { pattern = '(.*)\(#([0-9]).*', replace = '${1}[[#${2}](https://github.com/pythoninja/backup-flow/pull/${2})]' }
 ]
 # regex for parsing and grouping commits
 commit_parsers = [
@@ -82,9 +71,3 @@ topo_order = false
 sort_commits = "oldest"
 # limit the number of commits included in the changelog.
 # limit_commits = 42
-
-link_parsers = [
-    { pattern = "[fF]ixes #(\\d+)", text = "fixes [#${1}]", href = "https://github.com/pythoninja/backup-flow/issues/$1"},
-    { pattern = "[cC]loses #(\\d+)", text = "closes [#${1}]", href = "https://github.com/pythoninja/backup-flow/issues/$1"},
-    { pattern = "[sS]ee #(\\d+)", text = "see [#${1}]", href = "https://github.com/pythoninja/backup-flow/issues/$1"},
-]
