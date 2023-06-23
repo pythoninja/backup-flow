@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# backup-flow v0.1.0-alpha.1
+# backup-flow v0.1.0
 
 set -euo pipefail
 
