@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.1.0] - 2023-06-23
+
+### Bug Fixes
+
+- Detect old files by ctime instead of mtime [[#8](https://github.com/pythoninja/backup-flow/pull/8)] ([37f4c13](https://github.com/pythoninja/backup-flow/commit/37f4c13e27b574e9cebb0c506e4be4804da7ab9a))
 
 ### Continuous Integration
 
@@ -12,10 +16,16 @@ All notable changes to this project will be documented in this file.
 
 - Fix version in readme ([f80a973](https://github.com/pythoninja/backup-flow/commit/f80a9732a6af88dd673bed619392704bec788b0a))
 - Fix readme [[#4](https://github.com/pythoninja/backup-flow/pull/4)] ([055e12b](https://github.com/pythoninja/backup-flow/commit/055e12b4d457e50a79b80a7fc8ac1b6eaaee64c8))
+- Add new changelog ([9979121](https://github.com/pythoninja/backup-flow/commit/997912195668a29c529c1619be8b859336ce63f2))
+
+### Features
+
+- Print removed files after cleaning [[#7](https://github.com/pythoninja/backup-flow/pull/7)] ([8b645e9](https://github.com/pythoninja/backup-flow/commit/8b645e9d9064c43cedc84b1ad8ab80e8f27bc579))
 
 ### Miscellaneous Tasks
 
 - Add tbump config ([7b3dc24](https://github.com/pythoninja/backup-flow/commit/7b3dc246c80bb75a3ebf5e25182e803e85e9d121))
+- Fix cliff template ([398bd50](https://github.com/pythoninja/backup-flow/commit/398bd502023b42387150aaa1e2af52b3e00aed08))
 
 ## [0.1.0-alpha.1] - 2023-06-06
 
