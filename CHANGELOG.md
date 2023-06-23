@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2023-06-23
+
+### Bug Fixes
+
+- Ctime in wrong locale ([f740d7b](https://github.com/pythoninja/backup-flow/commit/f740d7b8d4558c32b40618a82273b04a9fa2f494))
+
+### Documentation
+
+- Update changelog ([d055449](https://github.com/pythoninja/backup-flow/commit/d05544985b3b55719af37ad3823146e52aef2e23))
+
 ## [0.1.0] - 2023-06-23
 
 ### Bug Fixes
