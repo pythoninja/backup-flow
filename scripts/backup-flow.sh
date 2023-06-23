@@ -139,10 +139,10 @@ function _backup_restic() {
 
 function _cleanup() {
     echo "Removing files and folders older then $KEEP_LOCAL_BACKUPS_DAYS days"
-    find "$BACKUP_STORAGE_PATH" -type f -mtime +"$KEEP_LOCAL_BACKUPS_DAYS" -delete
+    find "$BACKUP_STORAGE_PATH" -type f -mtime +"$KEEP_LOCAL_BACKUPS_DAYS" -delete -print
 
     echo "Removing empty folders"
-    find "$BACKUP_STORAGE_PATH" -empty -type d -delete
+    find "$BACKUP_STORAGE_PATH" -empty -type d -delete -print
 }
 
 function main() {
