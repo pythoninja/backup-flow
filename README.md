@@ -212,7 +212,7 @@ Stats in restore-size mode:
 
 [(Go to top)](#table-of-contents)
 
-#### Systemd and Timer
+#### Systemd and Timers
 
 Download the service and timer files from the [releases page](https://github.com/pythoninja/backup-flow/releases) or from the [systemd folder in the repository root](https://github.com/pythoninja/backup-flow/tree/main/systemd).
 
