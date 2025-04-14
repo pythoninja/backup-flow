@@ -218,26 +218,32 @@ Download the service and timer files from the [releases page](https://github.com
 
 To install the `backup-flow.service` and `backup-flow.timer` files:
 
-1. Copy the `backup-flow.service` and `backup-flow.timer` files to the `/etc/systemd/system/` directory:
-   
-   ```bash
-   sudo cp backup-flow.service backup-flow.timer /etc/systemd/system/
+1. Edit the `backup-flow.service` file and change the `ExecStart` line to point to the location of your `backup-flow` script. For example:
+
+   ```ini
+   ExecStart=/usr/local/bin/backup-flow.sh
    ```
 
-2. Reload the systemd daemon to recognize the new files:
+2. Copy the `backup-flow.service` and `backup-flow.timer` files to the `/etc/systemd/system/` directory:
    
    ```bash
-   sudo systemctl daemon-reload
+   cp backup-flow.service backup-flow.timer /etc/systemd/system/
    ```
 
-3. Enable and start the timer to schedule periodic backups:
+3. Reload the systemd daemon to recognize the new files:
    
    ```bash
-   sudo systemctl enable backup-flow.timer
-   sudo systemctl start backup-flow.timer
+   systemctl daemon-reload
    ```
 
-4. Verify that the timer is active:
+4. Enable and start the timer to schedule periodic backups:
+   
+   ```bash
+   systemctl enable backup-flow.timer
+   systemctl start backup-flow.timer
+   ```
+
+5. Verify that the timer is active:
    
    ```bash
    systemctl list-timers --all | grep backup-flow.timer
