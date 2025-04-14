@@ -214,15 +214,40 @@ Stats in restore-size mode:
 
 #### Systemd and Timers
 
+Download the service and timer files from the [releases page](https://github.com/pythoninja/backup-flow/releases) or from the [systemd folder in the repository root](https://github.com/pythoninja/backup-flow/tree/main/systemd).
 
+To install the `backup-flow.service` and `backup-flow.timer` files:
 
-Download the service and timer files.
+1. Edit the `backup-flow.service` file and change the `ExecStart` line to point to the location of your `backup-flow` script. For example:
 
-Run `systemctl daemon-reload`. Start the timer:
+   ```ini
+   ExecStart=/usr/local/bin/backup-flow.sh
+   ```
 
-```bash
-systemctl enable backup-flow-timer && systemctl start backup-flow.timer
-```
+2. Copy the `backup-flow.service` and `backup-flow.timer` files to the `/etc/systemd/system/` directory:
+   
+   ```bash
+   cp backup-flow.service backup-flow.timer /etc/systemd/system/
+   ```
+
+3. Reload the systemd daemon to recognize the new files:
+   
+   ```bash
+   systemctl daemon-reload
+   ```
+
+4. Enable and start the timer to schedule periodic backups:
+   
+   ```bash
+   systemctl enable backup-flow.timer
+   systemctl start backup-flow.timer
+   ```
+
+5. Verify that the timer is active:
+   
+   ```bash
+   systemctl list-timers --all | grep backup-flow.timer
+   ```
 
 [(Go to top)](#table-of-contents)
 
