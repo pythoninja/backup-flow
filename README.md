@@ -55,9 +55,21 @@ Before using the `backup-flow` script, please ensure that you have:
 
 ### Installation Steps
 
-Follow these steps for installation.
+Run this in your Bash (or your shell):
 
-TBD
+```shell
+BFT=$(mktemp -d) VERSION=$(curl -s https://api.github.com/repos/pythoninja/backup-flow/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') && cd "$BFT" && curl -sL "https://github.com/pythoninja/backup-flow/releases/download/$VERSION/backup-flow-$VERSION.tar.gz" | tar xz && cd "release-$VERSION/scripts" && chmod +x backup-flow.sh
+```
+
+After, you can check your current path by running `pwd` command. Here is an example:
+
+```shell
+/tmp/tmp.24FpsFJ3Oz/release-v0.1.1/scripts
+```
+
+Configure `backup-flow.sh` script. After configuration...
+
+
 
 [(Go to top)](#table-of-contents)
 
